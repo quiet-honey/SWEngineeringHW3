@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <tuple>
 #include "recruitment.h"
 using namespace std;
 
@@ -22,19 +23,14 @@ void AddRecruitInfoUI::createNewRecruit(char* work, int num, char* deadline) {
     AddRecruitInfo::addNewRecruit(work, num, deadline);
 }
 
-void RecruitInquiryUI::selectRecruitInfo() {
-    RecruitInquiry::showRecruitInfo();
+vector<Recruitment*> RecruitInquiryUI::selectRecruitInfo() {
+    return RecruitInquiry::showRecruitInfo();
 }
 
-void RecruitInquiry::showRecruitInfo() {
-    RecruitmentList::getRecruitListinfo();
+vector<Recruitment*> RecruitInquiry::showRecruitInfo() {
+    return RecruitmentList::getRecruitListinfo();
 }
 
-void RecruitmentList::getRecruitListinfo() {
-    FILE* out_fp;
-    out_fp = fopen("output.txt", "w+");
-    for (auto recruit : recruitments) {
-        fprintf(out_fp, "%s %d %s\n", recruit->getWork(), recruit->getNumberOfRecruit(), recruit->getDeadline());
-        cout << recruit->getWork() << " " << recruit->getNumberOfRecruit() << " " << recruit->getDeadline() << '\n';
-    }
+vector<Recruitment*> RecruitmentList::getRecruitListinfo() {
+    return recruitments;
 }

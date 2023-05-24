@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <tuple>
 
 using namespace std;
 
@@ -24,7 +25,7 @@ private:
     static vector<Recruitment*> recruitments;
 public:
     static void addRecruitment(Recruitment*);
-    static void getRecruitListinfo();
+    static vector<Recruitment*> getRecruitListinfo();
 };
 
 class AddRecruitInfoUI {
@@ -40,11 +41,11 @@ public:
 
 class RecruitInquiryUI {
 public:
-    static void selectRecruitInfo();
+    static vector<Recruitment*> selectRecruitInfo();
     static void startInterface();
 };
 
 class RecruitInquiry {
 public:
-    static void showRecruitInfo();
+    static vector<Recruitment*> showRecruitInfo();
 };
