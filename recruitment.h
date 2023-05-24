@@ -7,10 +7,15 @@ using namespace std;
 class Recruitment{
 private:
     string work;
-    string deadline;
     int numberOfRecruit;
+    string deadline;
 public:
-    Recruitment(char*, int, char*);
+    string getWork(){ return this->work; }
+    int getNumberOfRecruit(){ return this->numberOfRecruit; }
+    string getDeadline(){ return this->deadline; }
+    void setWork(char* work){this->work = work;}
+    void setNumberOfRecruit(int num){this->numberOfRecruit = num;}
+    void setDeadline(char* deadline){this->deadline = deadline;}
 };
 
 class RecruitmentList{

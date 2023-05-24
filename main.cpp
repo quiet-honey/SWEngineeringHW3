@@ -1,41 +1,42 @@
-ï»¿// í—¤ë” ì„ ì–¸
-#define _CRT_SECURE_NO_WARNINGS
+// Çì´õ ¼±¾ğ
 #include <iostream>
-#include "member.h"
+#include <string.h>
+#include "recruitment.h"
+using namespace std;
 
-
-// ìƒìˆ˜ ì„ ì–¸
+// »ó¼ö ¼±¾ğ
 #define MAX_STRING 32
 #define INPUT_FILE_NAME "input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
 
-// í•¨ìˆ˜ ì„ ì–¸
+// ÇÔ¼ö ¼±¾ğ
+
 void doTask();
+/*
 void signUp();
 void withdrawal();
 void login();
 void logout();
-/*void createNewRecruit();
+*/
+void createNewRecruit();
 void selectRecruitInfo();
+/*
 void searchRecruitment();
 void apply();
 void selectApplyInfo();
 void cancelApplyInfo();
-void showRecruitNumInfo();*/
+void showRecruitNumInfo();
+*/
 void program_exit();
 
-// ë³€ìˆ˜ ì„ ì–¸
+// º¯¼ö ¼±¾ğ
 FILE* in_fp, * out_fp;
-
-// MemberListë¥¼ ì‹±ê¸€í†¤ìœ¼ë¡œ ìœ ì§€í•˜ê¸° ìœ„í•´ instace ì´ˆê¸°í™”
-MemberList* MemberList::instance = nullptr;
 
 int main()
 {
-
-    // íŒŒì¼ ì…ì¶œë ¥ì„ ìœ„í•œ ì´ˆê¸°í™”
-    in_fp = fopen(INPUT_FILE_NAME, "r+");
-    out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+    // ÆÄÀÏ ÀÔÃâ·ÂÀ» À§ÇÑ ÃÊ±âÈ­
+    FILE* in_fp = fopen(INPUT_FILE_NAME, "r+");
+    FILE* out_fp = fopen(OUTPUT_FILE_NAME, "w+");
 
     doTask();
 
@@ -43,28 +44,28 @@ int main()
 }
 
 void doTask() {
-    // ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
+    // ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
     int menu_level_1 = 0, menu_level_2 = 0;
     int is_program_exit = 0;
 
     while (!is_program_exit)
     {
-        // ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
+        // ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Ş´º ¼ıÀÚ 2°³¸¦ ÀĞ±â
         fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
-        // cout << menu_level_1 << " " << menu_level_2 << "\n";
 
-        // ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+
+        // ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
         switch (menu_level_1)
-        {
+        {/*
         case 1:
             switch (menu_level_2)
             {
-            case 1:   // "1.1. íšŒì›ê°€ì…â€œ ë©”ë‰´ ë¶€ë¶„
-                // signUp() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰ 
+            case 1:   // "1.1. È¸¿ø°¡ÀÔ¡° ¸Ş´º ºÎºĞ
+                // signUp() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà 
                 signUp();
                 break;
-            case 2: // "1.2. íšŒì›íƒˆí‡´" ë©”ë‰´ ë¶€ë¶„
-                // withdrawal() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰ 
+            case 2: // "1.2. È¸¿øÅ»Åğ" ¸Ş´º ºÎºĞ
+                // withdrawal() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà 
                 withdrawal();
                 break;
             default:
@@ -85,35 +86,35 @@ void doTask() {
                 break;
             }
             break;
-
+        */
         case 3:
             switch (menu_level_2)
             {
             case 1:
-                //createNewRecruit();
+                createNewRecruit();
                 break;
             case 2:
-                //selectRecruitInfo();
+                selectRecruitInfo();
                 break;
             default:
                 break;
             }
             break;
-
+        /*
         case 4:
             switch (menu_level_2)
             {
             case 1:
-                //searchRecruitment();
+                searchRecruitment();
                 break;
             case 2:
-                //apply();
+                apply();
                 break;
             case 3:
-                //selectApplyInfo();
+                selectApplyInfo();
                 break;
             case 4:
-                //cancelApplyInfo();
+                cancelApplyInfo();
                 break;
             default:
                 break;
@@ -124,80 +125,44 @@ void doTask() {
             switch (menu_level_2)
             {
             case 1:
-                //showRecruitNumInfo();
+                showRecruitNumInfo();
                 break;
             default:
                 break;
             }
             break;
-
+        */
         case 6:
             switch (menu_level_2)
             {
-            case 1:   // "6.1. ì¢…ë£Œâ€œ ë©”ë‰´ ë¶€ë¶„
+            case 1:   // "6.1. Á¾·á¡° ¸Ş´º ºÎºĞ
                 program_exit();
                 is_program_exit = 1;
                 break;
             default:
                 break;
             }
-
+        
         default:
             break;
         }
     }
 }
 
-void signUp() {
-    /*            !!!!!!!       ì¤‘ìš”        !!!!!!!!!
-    * ë‹¨ìˆœíˆ íŒŒì¼ì„ í†µí•´ ì…ì¶œë ¥í•˜ëŠ” ë°©ë²•ì„ ë³´ì´ê¸° ìœ„í•œ ì½”ë“œì´ë¯€ë¡œ ì´ í•¨ìˆ˜ì—ì„œ ê·¸ëŒ€ë¡œ ì‚¬ìš©í•˜ë©´ ì•ˆë¨.
-    * control ë° boundary classë¥¼ ì´ìš©í•´ì„œ í•´ë‹¹ ê¸°ëŠ¥ì´ êµ¬í˜„ë˜ë„ë¡ í•´ì•¼ í•¨.
-    */
-    char memberType[MAX_STRING], name[MAX_STRING], num[MAX_STRING], id[MAX_STRING], pw[MAX_STRING];
+void createNewRecruit(){
+    char work[MAX_STRING], deadline[MAX_STRING];
+    int num;
 
-    // ì…ë ¥ í˜•ì‹ : íšŒì› ìœ í˜•, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸/ì‚¬ì—…ìë²ˆí˜¸, ID, PWë¥¼ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
-    fscanf(in_fp, "%s %s %s %s %s ", memberType, name, num, id, pw);
-
-    // í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰  
-    signUpUI::signUp(memberType, name, num, id, pw);
-
-    // ì¶œë ¥ í˜•ì‹
-    fprintf(out_fp, "1.1. íšŒì›ê°€ì…\n");
-    fprintf(out_fp, "%s %s %s %s\n", name, num, id, pw);
+    fscanf(in_fp, "%s %d %s\n", work, num, deadline);
+    AddRecruitInfoUI::createNewRecruit(work, num, deadline);
+    fprintf(out_fp, "3.1. Ã¤¿ë Á¤º¸ µî·Ï\n");
+    fprintf(out_fp, "%s %s\n", work, num, deadline);
 }
-
-void withdrawal() {
-    // í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰  
-    string id = withdrawalUI::withdrawal();
-
-    // ì¶œë ¥ í˜•ì‹
-    fprintf(out_fp, "1.2. íšŒì›íƒˆí‡´\n");
-    fprintf(out_fp, "%s\n", id.c_str());
-}
-
-void login() {
-    char id[MAX_STRING], pw[MAX_STRING];
-
-    // ì…ë ¥ í˜•ì‹ : ID, PWë¥¼ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
-    fscanf(in_fp, "%s %s ", id, pw);
-
-    // í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰  
-    loginUI::login(id, pw);
-
-    // ì¶œë ¥ í˜•ì‹
-    fprintf(out_fp, "2.1. ë¡œê·¸ì¸\n");
-    fprintf(out_fp, "%s %s\n",id, pw);
-}
-
-void logout() {
-    // í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰  
-    string id = logoutUI::logout();
-    // ì¶œë ¥ í˜•ì‹
-    fprintf(out_fp, "2.2. ë¡œê·¸ì•„ì›ƒ\n");
-    fprintf(out_fp, "%s\n", id.c_str());
+void selectRecruitInfo(){
+    fprintf(out_fp, "3.2. µî·ÏµÈ Ã¤¿ë Á¤º¸ Á¶È¸\n");
+    RecruitInquiryUI::selectRecruitInfo();
 }
 
 void program_exit() {
-    // ì¶œë ¥ í˜•ì‹
-    fprintf(out_fp, "6.1. ì¢…ë£Œ\n");
+    fprintf(out_fp, "6.1. Á¾·á\n");
 }
