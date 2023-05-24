@@ -1,4 +1,5 @@
-﻿#include "member.h"
+﻿
+#include "member.h"
 
 const string& Member::getName()
 {

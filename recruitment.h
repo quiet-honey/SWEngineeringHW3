@@ -1,17 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS
 #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
 #include <tuple>
+#include "member.h"
 
 using namespace std;
 
 class Recruitment {
 private:
+    MemberList* memberList = MemberList::getInstance();
+    string company;
+    string bizNum;
     string work;
     int numberOfRecruit;
     string deadline;
 public:
+    string getCompany() { return company; }
+    string getBizNum() { return bizNum; }
+    void setCompany() { company = memberList->getCurrentUser()->getName(); }
+    void setBizNum();
+    
     string getWork() { return this->work; }
     int getNumberOfRecruit() { return this->numberOfRecruit; }
     string getDeadline() { return this->deadline; }

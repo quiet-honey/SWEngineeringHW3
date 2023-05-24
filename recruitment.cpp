@@ -10,8 +10,21 @@ void RecruitmentList::addRecruitment(Recruitment* recruitment) {
     recruitments.push_back(recruitment);
 }
 
+void Recruitment::setBizNum() { // getBizNum 사용법
+    MemberList* ml = MemberList::getInstance();
+    Member* temp = ml->getCurrentUser();
+    BizMember* bizMember = dynamic_cast<BizMember*>(temp);
+    if (bizMember != nullptr) {
+        const string& bizNum = bizMember->getBizNum();
+        // bizNum 사용
+        cout << bizNum << "\n";
+    }
+}
+
 void AddRecruitInfo::addNewRecruit(char* work, int num, char* deadline) {
     Recruitment* r = new Recruitment();
+    r->setCompany();
+    //r->setBizNum();
     r->setWork(work);
     r->setNumberOfRecruit(num);
     r->setDeadline(deadline);

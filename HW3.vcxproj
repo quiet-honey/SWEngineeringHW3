@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="member.cpp" />
+    <ClCompile Include="recruitment.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="member.h" />
+    <ClInclude Include="recruitment.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -39,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
