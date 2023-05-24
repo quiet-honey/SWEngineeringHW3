@@ -1,5 +1,10 @@
 ﻿#include "member.h"
 
+const string& Member::getName()
+{
+    return name;
+}
+
 const string& Member::getId()
 {
     return id;
@@ -8,6 +13,11 @@ const string& Member::getId()
 const string& Member::getPw()
 {
     return pw;
+}
+
+const string& BizMember::getBizNum()
+{
+    return bizNum;
 }
 
 MemberList* MemberList::getInstance() {

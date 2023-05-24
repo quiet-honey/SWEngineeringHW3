@@ -11,6 +11,7 @@ protected:
     string id;
     string pw;
 public:
+    const string& getName();
     const string& getId();
     const string& getPw();
 
@@ -33,6 +34,7 @@ private:
 public:
     BizMember(const string& name, const string& bizNum, const string& id, const string& pw)
         : Member(name, id, pw), bizNum(bizNum) {}
+    const string& getBizNum();
 };
 
 class MemberList {
