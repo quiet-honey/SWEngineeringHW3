@@ -22,8 +22,10 @@ void logout();
 void createNewRecruit();
 void selectRecruitInfo();
 
+/*
 void searchRecruitment();
 void apply();
+*/
 /*
 void selectApplyInfo();
 void cancelApplyInfo();
@@ -103,7 +105,7 @@ void doTask() {
                 break;
             }
             break;
-            
+        /*
         case 4:
             switch (menu_level_2)
             {
@@ -113,7 +115,7 @@ void doTask() {
             case 2:
                 apply();
                 break;
-            }
+            }*/
                 /*
             case 3:
                 selectApplyInfo();

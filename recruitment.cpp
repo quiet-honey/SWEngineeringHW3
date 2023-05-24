@@ -23,7 +23,7 @@ void Recruitment::setBizNum() {
     if (bizMember != nullptr) {
         const string& bizNum = bizMember->getBizNum();
         // bizNum »ç¿ë
-        cout << bizNum << "\n";
+        this->bizNum = bizNum;
     }
 }
 

@@ -15,6 +15,11 @@ const string& Member::getPw()
     return pw;
 }
 
+const string& Member::getBizNum()
+{
+    throw logic_error("일반 회원입니다.");
+}
+
 const string& BizMember::getBizNum()
 {
     return bizNum;
