@@ -34,37 +34,24 @@ public:
     BizMember(const string& name, const string& bizNum, const string& id, const string& pw)
         : Member(name, id, pw), bizNum(bizNum) {}
 };
-/*class Member {
-protected:
-    char* name;
-    char* id;
-    char* pw; 
-public:
-    char* getId();
-    char* getPw();
 
-    Member(char* name, char* id, char* pw)
-        : name(name), id(id), pw(pw){};
-};
-
-class NormalMember:public Member{
+class MemberList {
 private:
-    char* ssn;
-    int applyNum;
-public:
-    NormalMember(char* name, char* ssn, char* id, char* pw) : Member(name, id, pw), ssn(ssn), applyNum(0) {
-        cout << "나는 일반 회원" << "\n";
-    }
-};
+    vector<Member*> members;
+    Member* currentUser;
+    static MemberList* instance;
 
-class BizMember:public Member{
-private:
-    char* bizNum;
+    MemberList() {}
+
 public:
-    BizMember(char* name, char* bizNum, char* id, char* pw) : Member(name, id, pw), bizNum(bizNum) {
-        cout << "나는 회사 회원" << "\n";
-    }
-};*/
+    static MemberList* getInstance();
+    void addMember(Member* member);
+    void removeMember(Member* member);
+    void setCurrentUser(Member* member);
+    Member* getCurrentUser();
+    Member* findMemberById(const string& id);
+    //void printAllMembers();
+};
 
 class signUpUI
 {
@@ -91,18 +78,6 @@ public:
     static string deleteMember();
 };
 
-class logoutUI {
-public:
-    static void startInterface();
-    static string logout();
-    static string logoutSuccess(const string& id);
-};
-
-class logout {
-public:
-    static string logoutRequest();
-};
-
 class loginUI {
 public:
     static void startInterface();
@@ -116,20 +91,14 @@ public:
     static void loginRequest(const string& id, const string& pw);
 };
 
-class MemberList {
-private:
-    vector<Member*> members;
-    Member* currentUser;
-    static MemberList* instance;
-
-    MemberList() {}
-
+class logoutUI {
 public:
-    static MemberList* getInstance();
-    void addMember(Member* member);
-    void removeMember(Member* member);
-    void setCurrentUser(Member* member);
-    Member* getCurrentUser();
-    Member* findMemberById(const string& id);
-    //void printAllMembers();
+    static void startInterface();
+    static string logout();
+    static string logoutSuccess(const string& id);
+};
+
+class logout {
+public:
+    static string logoutRequest();
 };
