@@ -51,7 +51,7 @@ void doTask() {
     {
         // 입력파일에서 메뉴 숫자 2개를 읽기
         fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
-        cout << menu_level_1 << " " << menu_level_2 << "\n";
+        // cout << menu_level_1 << " " << menu_level_2 << "\n";
 
         // 메뉴 구분 및 해당 연산 수행
         switch (menu_level_1)
@@ -168,11 +168,11 @@ void signUp() {
 
 void withdrawal() {
     // 해당 기능 수행  
-    char* id = withdrawalUI::withdrawal();
+    string id = withdrawalUI::withdrawal();
 
     // 출력 형식
     fprintf(out_fp, "1.2. 회원탈퇴\n");
-    fprintf(out_fp, "%s\n", id);
+    fprintf(out_fp, "%s\n", id.c_str());
 }
 
 void login() {
@@ -191,10 +191,10 @@ void login() {
 
 void logout() {
     // 해당 기능 수행  
-    char* id = logoutUI::logout();
+    string id = logoutUI::logout();
     // 출력 형식
     fprintf(out_fp, "2.2. 로그아웃\n");
-    fprintf(out_fp, "%s\n", id);
+    fprintf(out_fp, "%s\n", id.c_str());
 }
 
 void program_exit() {

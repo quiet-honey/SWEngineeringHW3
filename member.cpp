@@ -1,103 +1,109 @@
 ﻿#include "member.h"
 
-char* Member::getId()
+const string& Member::getId()
 {
     return id;
 }
 
-char* Member::getPw()
+const string& Member::getPw()
 {
     return pw;
 }
 
 void signUpUI::startInterface()
 {
-    //cout << "1.1 회占쏙옙 占쏙옙占쏙옙" << "\n";
+    cout << "1.1 회원 가입\n";
 }
 
-void signUpUI::signUp(char* memberType, char* name, char* num, char* id, char* pw)
-{
+void signUpUI::signUp(const string& memberType, const string& name, const string& num, const string& id, const string& pw)
+{  
+    startInterface();
     signUp::addNewMember(memberType, name, num, id, pw);
 }
 
-void signUpUI::signUpSuccess(char* memberType, char* name, char* num, char* id, char* pw)
+void signUpUI::signUpSuccess(const string& memberType, const string& name, const string& id)
 {
-    cout << memberType << " " << name << " " << num << " " << id << " " << pw << "\n";
+    if(memberType == "1") cout << "새로운 회사 회원 가입 완료\n" << "회사 이름 : " << name << " " << "\n회원 ID : " << id << "\n";
+    else cout << "새로운 일반 회원 가입 완료\n" << "회원 이름 : " << name << " " << "\n회원 ID : " << id << "\n";
+
 }
 
-void signUp::addNewMember(char* memberType, char* name, char* num, char* id, char* pw)
+void signUp::addNewMember(const string& memberType, const string& name, const string& num, const string& id, const string& pw)
 {
-    if (strcmp(memberType, "1") == 0) {
+    MemberList* memberList = MemberList::getInstance();
+    if (memberType == "1") {
         BizMember* bMember = new BizMember(name, num, id, pw);
-        MemberList* memberList = MemberList::getInstance();
         memberList->addMember(bMember);
-        signUpUI::signUpSuccess(memberType, name, num, id, pw);
+        signUpUI::signUpSuccess(memberType, name, id);
     }
     else {
         NormalMember* nMember = new NormalMember(name, num, id, pw);
-        MemberList* memberList = MemberList::getInstance();
         memberList->addMember(nMember);
-        signUpUI::signUpSuccess(memberType, name, num, id, pw);
+        signUpUI::signUpSuccess(memberType, name, id);
     }
+    // memberList->printAllMembers();
 }
 
 void withdrawalUI::startInterface()
 {
-    //cout << "1.2 회占쏙옙탈占쏙옙" << "\n";
+    cout << "1.2 회원탈퇴\n";
 }
 
-char* withdrawalUI::withdrawal()
+string withdrawalUI::withdrawal()
 {
+    startInterface();
     return withdrawal::deleteMember();
 }
 
-char* withdrawalUI::withdrawalSuccess(char* id)
+string withdrawalUI::withdrawalSuccess(const string& id)
 {
     return id;
 }
 
-char* withdrawal::deleteMember()
+string withdrawal::deleteMember()
 {
     MemberList* memberList = MemberList::getInstance();
     Member* currentUser = memberList->getCurrentUser();
+    string targetId = currentUser->getId();
     if (currentUser != nullptr) {
         memberList->removeMember(currentUser);
-        cout << "회원탈퇴 성공 : 회원 ID = " << currentUser->getId() << "\n";
+        cout << "회원(ID = " << targetId << ") 회원탈퇴 성공\n";
     }
     memberList->setCurrentUser(nullptr);
-    return withdrawalUI::withdrawalSuccess(currentUser->getId());
+    return withdrawalUI::withdrawalSuccess(targetId);
 }
 
 void loginUI::startInterface()
 {
-    //cout << "2.1 占싸깍옙占쏙옙" << "\n";
+    cout << "2.1 로그인\n";
 }
 
-void loginUI::login(char* id, char* pw)
+void loginUI::login(const string& id, const string& pw)
 {
+    startInterface();
     login::loginRequest(id, pw);
 }
 
-void loginUI::loginSuccess(char* id, char* pw)
+void loginUI::loginSuccess(const string& id, const string& pw)
 {
-    cout << "로그인 완료" << "\n";
-    cout << id << " " << pw << "\n";
+    cout << "로그인 완료\n";
+    // cout << id << " " << pw << "\n";
     MemberList* memberList = MemberList::getInstance();
-    cout << "로그인한 유저 ID : " << memberList->getCurrentUser()->getId() << "\n";
+    cout << "로그인된 유저 ID : " << memberList->getCurrentUser()->getId() << "\n";
 }
 
 void loginUI::loginFail()
 {
-    cout << "일치하지 않는 ID / PW" << "\n";
+    cout << "일치하지 않는 ID / PW\n";
 }
 
-void login::loginRequest(char* id, char* pw)
+void login::loginRequest(const string& id, const string& pw)
 {
     MemberList* memberList = MemberList::getInstance();
     Member* member = memberList->findMemberById(id);
     if (member != nullptr) {
         // 입력한 PW와 저장된 PW가 일치한다면 로그인 성공
-        if (strcmp(member->getPw(), pw) == 0) { 
+        if (member->getPw() == pw) {
             memberList->setCurrentUser(member);
             loginUI::loginSuccess(id, pw);
         }
@@ -107,29 +113,34 @@ void login::loginRequest(char* id, char* pw)
 
 void logoutUI::startInterface()
 {
-   // cout << "2.2 占싸그아울옙" << "\n";
+    cout << "2.2 로그아웃\n";
 }
 
-char* logoutUI::logout()
+string logoutUI::logout()
 {
+    startInterface();
     return logout::logoutRequest();
 }
 
-char* logoutUI::logoutSuccess(char *id)
+string logoutUI::logoutSuccess(const string& id)
 {
     return id;
 }
 
-char* logout::logoutRequest()
+string logout::logoutRequest()
 {
     MemberList* memberList = MemberList::getInstance();
     Member* currentUser = memberList->getCurrentUser();
-    if (currentUser != nullptr) cout << "로그아웃 성공 : 회원 ID = " << currentUser->getId() << "\n";
-    memberList->setCurrentUser(nullptr);
-    return logoutUI::logoutSuccess(currentUser->getId());
+    string targetId = currentUser->getId();
+    if (currentUser != nullptr) {
+        memberList->setCurrentUser(nullptr);
+        cout << "회원(ID = " << targetId << ") 로그아웃 성공\n";
+    }
+    else "로그아웃 실패\n";
+    return logoutUI::logoutSuccess(targetId);
 }
 
-MemberList* MemberList::getInstance(){
+MemberList* MemberList::getInstance() {
     if (!instance) {
         instance = new MemberList();
     }
@@ -139,31 +150,17 @@ MemberList* MemberList::getInstance(){
 void MemberList::addMember(Member* member)
 {
     members.push_back(member);
-    cout << "회원가입 성공 : 회원 ID = " << members.back()->getId() << "\n";
+    cout << "회원(ID = " << members.back()->getId() << ") DB에 저장 성공\n";
 }
 
 void MemberList::removeMember(Member* target)
 {
-    /*for (Member* member : members) {
-        if (member->getId() == target->getId()) {
-            members.erase(target);
-            cout << "회원 삭제 성공 : 회원 ID = " << (*k)->getId() << "\n";
-            return;
-        }
-    }*/
     auto k = find(members.begin(), members.end(), target);
     if (k != members.end()) {
-        cout << "회원삭제 성공 : 회원 ID = " << (*k)->getId() << "\n";
         members.erase(k);
+        cout << "회원(ID = " << target->getId() << ") DB에서 삭제 성공\n";
     }
-    /*for (auto k = members.begin(); k != members.end(); ++k) {
-        if ((*k)->getId() == target->getId()) {
-            members.erase(k);
-            cout << "회원 삭제 성공 : 회원 ID = " << (*k)->getId() << "\n";
-            (*k)->~Member();
-            return;
-        }
-    }*/
+    // printAllMembers();
 }
 
 void MemberList::setCurrentUser(Member* member)
@@ -176,11 +173,20 @@ Member* MemberList::getCurrentUser()
     return currentUser;
 }
 
-Member* MemberList::findMemberById(char* id) {
+Member* MemberList::findMemberById(const string& id) {
     for (Member* member : members) {
         if (member->getId() == id) {
             return member;
         }
     }
     return nullptr;
- }
+}
+
+/*void MemberList::printAllMembers()
+{
+    for (Member* member : members) {
+        cout << "ID: " << member->getId() << "\n";
+        cout << "PW: " << member->getPw() << "\n";
+        cout << "-------------------------" << "\n";
+    }
+}*/
