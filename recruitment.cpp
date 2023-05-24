@@ -4,16 +4,22 @@
 #include "recruitment.h"
 using namespace std;
 
-std::vector<Recruitment*> RecruitmentList::recruitments = std::vector<Recruitment*>(0);
+vector<Recruitment*> RecruitmentList::recruitments = vector<Recruitment*>(0);
 
 void RecruitmentList::addRecruitment(Recruitment* recruitment) {
     recruitments.push_back(recruitment);
 }
 
-void Recruitment::setBizNum() { // getBizNum 사용법
-    MemberList* ml = MemberList::getInstance();
-    Member* temp = ml->getCurrentUser();
-    BizMember* bizMember = dynamic_cast<BizMember*>(temp);
+void Recruitment::setCompany()
+{
+    MemberList* memberList = MemberList::getInstance();
+    company = memberList->getCurrentUser()->getName();
+}
+
+void Recruitment::setBizNum() {
+    MemberList* memberList = MemberList::getInstance();
+    Member* currentUser = memberList->getCurrentUser();
+    BizMember* bizMember = dynamic_cast<BizMember*>(currentUser);
     if (bizMember != nullptr) {
         const string& bizNum = bizMember->getBizNum();
         // bizNum 사용

@@ -17,6 +17,7 @@ public:
 
     Member(const string& name, const string& id, const string& pw)
         : name(name), id(id), pw(pw) {}
+    virtual const string& getBizNum();
 };
 
 class NormalMember : public Member {
@@ -34,7 +35,7 @@ private:
 public:
     BizMember(const string& name, const string& bizNum, const string& id, const string& pw)
         : Member(name, id, pw), bizNum(bizNum) {}
-    const string& getBizNum();
+    const string& getBizNum() override; // 오버라이딩
 };
 
 class MemberList {

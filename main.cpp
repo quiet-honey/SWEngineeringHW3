@@ -22,8 +22,8 @@ void logout();
 
 void createNewRecruit();
 void selectRecruitInfo();
+//void searchRecruitment();
 /*
-void searchRecruitment();
 void apply();
 void selectApplyInfo();
 void cancelApplyInfo();
@@ -115,6 +115,7 @@ void doTask() {
             case 2:
                 apply();
                 break;
+                
             case 3:
                 selectApplyInfo();
                 break;
@@ -125,7 +126,7 @@ void doTask() {
                 break;
             }
             break;
-
+            
         case 5:
             switch (menu_level_2)
             {
@@ -222,6 +223,24 @@ void selectRecruitInfo() {
         fprintf(out_fp, "%s %s %d %s\n", recruit->getCompany().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
     }
 }
+
+/*
+void searchRecruitment() {
+    fprintf(out_fp, "4.1. 채용 정보 검색\n");
+
+    char company[MAX_STRING];
+
+    vector<Recruitment*> recruitments = RecruitInquiryUI::selectRecruitInfo();
+
+    for (auto recruit : recruitments) {
+        if (recruit->getCompany().compare(company))
+        {
+            fprintf(out_fp, "%s %s %d %s\n", recruit->getCompany().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
+        }
+        
+    }
+}
+*/
 
 void program_exit() {
     fprintf(out_fp, "6.1. 종료\n");

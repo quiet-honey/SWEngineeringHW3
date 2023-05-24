@@ -10,7 +10,6 @@ using namespace std;
 
 class Recruitment {
 private:
-    MemberList* memberList = MemberList::getInstance();
     string company;
     string bizNum;
     string work;
@@ -19,9 +18,8 @@ private:
 public:
     string getCompany() { return company; }
     string getBizNum() { return bizNum; }
-    void setCompany() { company = memberList->getCurrentUser()->getName(); }
+    void setCompany();
     void setBizNum();
-    
     string getWork() { return this->work; }
     int getNumberOfRecruit() { return this->numberOfRecruit; }
     string getDeadline() { return this->deadline; }
