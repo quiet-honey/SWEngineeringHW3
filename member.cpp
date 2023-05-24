@@ -1,5 +1,4 @@
-﻿
-#include "member.h"
+﻿#include "member.h"
 
 const string& Member::getName()
 {
@@ -14,11 +13,6 @@ const string& Member::getId()
 const string& Member::getPw()
 {
     return pw;
-}
-
-const string& Member::getBizNum()
-{
-    throw logic_error("일반 회원입니다.");
 }
 
 const string& BizMember::getBizNum()
@@ -131,13 +125,6 @@ string withdrawal::deleteMember()
 {
     MemberList* memberList = MemberList::getInstance();
     Member* currentUser = memberList->getCurrentUser();
-    // cout << "TEST : " << currentUser->getName() << "\n";
-    BizMember* bizMember = dynamic_cast<BizMember*>(currentUser);
-    if (bizMember != nullptr) {
-        const string& bizNum = bizMember->getBizNum();
-        // bizNum 사용
-        cout << bizNum << "\n";
-    }
     string targetId = currentUser->getId();
     if (currentUser != nullptr) {
         memberList->removeMember(currentUser);

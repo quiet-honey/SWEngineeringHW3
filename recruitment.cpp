@@ -1,10 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include <tuple>
 #include "recruitment.h"
+#include "member.h"
 using namespace std;
 
-vector<Recruitment*> RecruitmentList::recruitments = vector<Recruitment*>(0);
+std::vector<Recruitment*> RecruitmentList::recruitments = std::vector<Recruitment*>(0);
 
 void RecruitmentList::addRecruitment(Recruitment* recruitment) {
     recruitments.push_back(recruitment);
@@ -30,7 +30,7 @@ void Recruitment::setBizNum() {
 void AddRecruitInfo::addNewRecruit(char* work, int num, char* deadline) {
     Recruitment* r = new Recruitment();
     r->setCompany();
-    //r->setBizNum();
+    r->setBizNum();
     r->setWork(work);
     r->setNumberOfRecruit(num);
     r->setDeadline(deadline);
