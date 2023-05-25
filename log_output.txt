@@ -1,0 +1,38 @@
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 07:20:02 2023 +0900 Merge branch 'master' of github.com:quiet-honey/SWEngineeringHW3 6b49e2b
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 07:19:41 2023 +0900 communication diagram 수정 eeea778
+[viitamin] Fri May 26 07:19:15 2023 +0900 클래스다이어그램수정 e999c73
+[viitamin] Fri May 26 07:12:14 2023 +0900 지원정보관리추가 d22f991
+[Rexmaha] Fri May 26 07:00:10 2023 +0900 Revert "다이어그램추가" a3c8ddc
+[Rexmaha] Fri May 26 06:59:40 2023 +0900 Revert "필요없는 파일 삭제" 13a2e33
+[Rexmaha] Fri May 26 06:57:25 2023 +0900 Revert "오타 수정" e6f91dc
+[viitamin] Fri May 26 06:41:37 2023 +0900 Merge branch 'master' of https://github.com/quiet-honey/SWEngineeringHW3 9a74347
+[viitamin] Fri May 26 06:41:14 2023 +0900 다이어그램추가 5fe1bac
+[Rexmaha] Fri May 26 06:40:43 2023 +0900 오타 수정 c177187
+[Rexmaha] Fri May 26 06:39:03 2023 +0900 필요없는 파일 삭제 a41a70f
+[Rexmaha] Fri May 26 06:35:28 2023 +0900 Merge branch 'master' of https://github.com/quiet-honey/SWEngineeringHW3 a4756bb
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 06:32:55 2023 +0900 communication diagram 추가 d4f43aa
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 06:25:48 2023 +0900 채용 정보 관리 class diagram 6b205c6
+[Rexmaha] Fri May 26 05:18:38 2023 +0900 4.1 수정 7a8a284
+[Rexmaha] Fri May 26 05:03:16 2023 +0900 최종수정버전 10a9ea2
+[viitamin] Fri May 26 04:05:01 2023 +0900 4.4 수정 22d99bd
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 03:51:55 2023 +0900 4.1, 4.2 일반회원일때만 돌아가게 수정 585080b
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 03:43:23 2023 +0900 4.2 채용 지원 구현 e0775dd
+[viitamin] Fri May 26 03:01:37 2023 +0900 4.3 4.4 5.1 추가 e8bad14
+[DESKTOP-S1GDTNG\KIM BUM SOO] Fri May 26 00:03:37 2023 +0900 4.1 UI 구현 8455a46
+[DESKTOP-S1GDTNG\KIM BUM SOO] Thu May 25 11:59:21 2023 +0900 4.1 구현 ca3ac22
+[DESKTOP-S1GDTNG\KIM BUM SOO] Thu May 25 11:42:16 2023 +0900 4.1 구현 717a3cc
+[Rexmaha] Thu May 25 03:40:52 2023 +0900 1~3 완성 d925716
+[Rexmaha] Thu May 25 03:27:42 2023 +0900 추가 수정 cd483ce
+[DESKTOP-S1GDTNG\KIM BUM SOO] Thu May 25 03:22:17 2023 +0900 member, recruitment 수정 5e13c41
+[DESKTOP-S1GDTNG\KIM BUM SOO] Thu May 25 02:56:56 2023 +0900 member랑 recruitment 연동 6425eb5
+[Rexmaha] Thu May 25 01:56:15 2023 +0900 fprinf를 위한 return type 변경 7c6e81a
+[Rexmaha] Thu May 25 01:37:30 2023 +0900 FILE IO를 위한 클래스 수정 d2fc25f
+[lildev1-admin] Thu May 25 01:09:33 2023 +0900 [회원 관리] name, bizNum getter 구현 45f1305
+[Rexmaha] Thu May 25 01:03:46 2023 +0900 채용정보 조회 기능 구현 b3fb82c
+[lildev1-admin] Thu May 25 00:42:13 2023 +0900 Merge branch 'master' of https://github.com/quiet-honey/SWEngineeringHW3 7722b36
+[lildev1-admin] Thu May 25 00:41:58 2023 +0900 회원 관리 Class Diagram 추가 6e22d1e
+[Rexmaha] Thu May 25 00:11:32 2023 +0900 채용정보 관련 로직 일부 dddfb8a
+[viitamin] Wed May 24 22:39:52 2023 +0900 Feat 지원파트 추가 9adb28e
+[lildev1-admin] Wed May 24 17:35:18 2023 +0900 [회원 관리] 사용하지 않는 함수들 주석 처리 및 클래스 순서 정리 43766b7
+[lildev1-admin] Wed May 24 17:09:53 2023 +0900 회원 관련 출력 오류 해결 1fe9ab2
+[lildev1-admin] Wed May 24 13:28:35 2023 +0900 회원 관련 로직 구현 완료 c964dcf
