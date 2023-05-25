@@ -60,6 +60,16 @@ public:
     static vector<Recruitment*> showRecruitInfo();
 };
 
+class GetRecruitmentUI {
+public:
+    static vector<Recruitment*> showRecruitment();
+};
+
+class GetRecruitment {
+public:
+    static vector<Recruitment*> showRecruitmentDetail();
+};
+
 class GetRecruitNumUI {
 public:
     static vector<Recruitment*> showRecruitNumInfo();

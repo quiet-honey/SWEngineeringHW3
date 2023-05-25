@@ -230,17 +230,25 @@ void selectRecruitInfo() {
 }
 
 Recruitment* searchRecruitment() {
+    fprintf(out_fp, "4.1. 채용 정보 검색\n");
+
     char company[MAX_STRING];
+
     fscanf(in_fp, "%s", company);
 
-    vector<Recruitment*> recruitments = RecruitInquiryUI::selectRecruitInfo();
-    cout << "4.1. 채용 정보 검색\n";
-    fprintf(out_fp, "4.1. 채용 정보 검색\n");
-    for (auto recruit : recruitments) {
-        if (recruit->getCompany() == company)
-        {
-            fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
-            return recruit;
+    Member* member = MemberList::getInstance()->getCurrentUser();
+
+    if (typeid(*member) == typeid(NormalMember)) {
+        //currentUser가 BizMember일 때
+        vector<Recruitment*> recruitments = GetRecruitmentUI::showRecruitment();
+
+        for (auto recruit : recruitments) {
+
+            if (recruit->getCompany() == company)
+            {
+                fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
+                return recruit;
+            }
         }
     }
 }
