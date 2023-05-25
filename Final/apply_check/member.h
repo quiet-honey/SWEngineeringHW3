@@ -66,7 +66,7 @@ public:
 
 class signUp {
 public:
-    static void addNewMember(const string& memberType, const string& name, const string& num, const string& id, const string& pww);
+    static void addNewMember(const string& memberType, const string& name, const string& num, const string& id, const string& pw);
 };
 
 class withdrawalUI {
