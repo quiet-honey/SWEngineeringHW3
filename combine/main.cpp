@@ -234,15 +234,22 @@ void searchRecruitment() {
 
     fscanf(in_fp, "%s", company);
 
+    MemberList* memberList = MemberList::getInstance();
 
-    vector<Recruitment*> recruitments = GetRecruitmentUI::showRecruitment();
+    if (typeid(memberList->getCurrentUser()) == typeid(NormalMember)) {
+        //currentUser∞° BizMember¿œ ∂ß
+        vector<Recruitment*> recruitments = GetRecruitmentUI::showRecruitment();
+        
+        for (auto recruit : recruitments) {
+        
+            if (recruit->getCompany() == company)
+                {
+                    fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
+                }
+            }
 
-    for (auto recruit : recruitments) {
-        if (recruit->getCompany() == company)
-        {
-            fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
-        }
     }
+    
 }
 
 
@@ -252,9 +259,13 @@ void apply() {
     char bizNum[MAX_STRING];
     fscanf(in_fp, "%s", bizNum);
 
-    ApplyInfo a = ApplyUI::apply(bizNum);
+    MemberList* memberList = MemberList::getInstance();
 
-    fprintf(out_fp, "%s %s %s \n", a.getCompanyName().c_str(), a.getBizNum().c_str(), a.getWork().c_str());
+    if (typeid(memberList->getCurrentUser()) == typeid(NormalMember)) {
+        ApplyInfo a = ApplyUI::apply(bizNum);
+
+        fprintf(out_fp, "%s %s %s \n", a.getCompanyName().c_str(), a.getBizNum().c_str(), a.getWork().c_str());
+    }
 
 }
 
