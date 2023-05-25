@@ -1,17 +1,15 @@
-#define _CRT_SECURE_NO_WARNINGS
 #pragma once
 #include <iostream>
 #include <string>
 #include <vector>
-#include <tuple>
 #include "member.h"
-
 using namespace std;
 
 class Recruitment {
 private:
     string company;
     string bizNum;
+
     string work;
     int numberOfRecruit;
     string deadline;
@@ -20,6 +18,7 @@ public:
     string getBizNum() { return bizNum; }
     void setCompany();
     void setBizNum();
+
     string getWork() { return this->work; }
     int getNumberOfRecruit() { return this->numberOfRecruit; }
     string getDeadline() { return this->deadline; }
@@ -39,7 +38,6 @@ public:
 class AddRecruitInfoUI {
 public:
     static void createNewRecruit(char*, int, char*);
-    static void startInterface();
 };
 
 class AddRecruitInfo {
@@ -50,7 +48,6 @@ public:
 class RecruitInquiryUI {
 public:
     static vector<Recruitment*> selectRecruitInfo();
-    static void startInterface();
 };
 
 class RecruitInquiry {
