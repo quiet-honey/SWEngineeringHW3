@@ -211,6 +211,7 @@ void createNewRecruit() {
     fprintf(out_fp, "3.1. 채용 정보 등록\n");
     fprintf(out_fp, "%s %d %s\n", work, num, deadline);
 }
+
 void selectRecruitInfo() {
     fprintf(out_fp, "3.2. 등록된 채용 정보 조회\n");
     vector<Recruitment*> recruitments = RecruitInquiryUI::selectRecruitInfo();
@@ -231,7 +232,7 @@ void searchRecruitment() {
     fscanf(in_fp, "%s", company);
 
 
-    vector<Recruitment*> recruitments = RecruitInquiryUI::selectRecruitInfo();
+    vector<Recruitment*> recruitments = GetRecruitmentUI::showRecruitment();
 
     for (auto recruit : recruitments) {
         if (recruit->getCompany() == company)
@@ -240,6 +241,10 @@ void searchRecruitment() {
         }
 
     }
+}
+
+void apply() {
+
 }
 
 void program_exit() {

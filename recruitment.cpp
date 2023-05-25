@@ -53,3 +53,11 @@ vector<Recruitment*> RecruitInquiry::showRecruitInfo() {
 vector<Recruitment*> RecruitmentList::getRecruitListinfo() {
     return recruitments;
 }
+
+vector<Recruitment*> GetRecruitmentUI::showRecruitment() {
+    return RecruitInquiry::showRecruitInfo();
+}
+
+vector<Recruitment*> GetRecruitment::showRecruitmentDetail() {
+    return RecruitmentList::getRecruitListinfo();
+}
