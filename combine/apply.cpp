@@ -4,11 +4,11 @@
 
 
 //Áö¿ø
-void ApplyUI::apply(string bizNum) {
-	Apply::addNewApply(bizNum);
+ApplyInfo ApplyUI::apply(string bizNum) {
+	return Apply::addNewApply(bizNum);
 }
 
-void Apply::addNewApply(string bizNum) {
+ApplyInfo Apply::addNewApply(string bizNum) {
 	vector<Recruitment*> recruitments = RecruitmentList::getRecruitListinfo();
 
 	ApplyInfo a("","", "", 0, "");
@@ -22,9 +22,13 @@ void Apply::addNewApply(string bizNum) {
 			a.setWork(recruit->getWork());
 			a.setNumOfPeople(recruit->getNumberOfRecruit());
 			a.setDeadline(recruit->getDeadline());
+			recruit->setNumberOfApplicants(true);
 		}
 	}
+
 	memberList->getCurrentUser()->putRegistration(a);
+
+	return a;
 
 }
 

@@ -11,7 +11,7 @@ private:
     string bizNum;
 
     string work;
-    int numberOfApplicants;
+    int numberOfApplicants = 0;
     int numberOfRecruit;
     string deadline;
 public:
@@ -26,6 +26,8 @@ public:
     void setWork(char* work) { this->work = work; }
     void setNumberOfRecruit(int num) { this->numberOfRecruit = num; }
     void setDeadline(char* deadline) { this->deadline = deadline; }
+    void setNumberOfApplicants(bool b);
+    int getNumberOfApplicants() { return numberOfApplicants; }
 };
 
 class RecruitmentList {
@@ -54,4 +56,14 @@ public:
 class RecruitInquiry {
 public:
     static vector<Recruitment*> showRecruitInfo();
+};
+
+class GetRecruitmentUI {
+public:
+    static vector<Recruitment*> showRecruitment();
+};
+
+class GetRecruitment {
+public:
+    static vector<Recruitment*> showRecruitmentDetail();
 };

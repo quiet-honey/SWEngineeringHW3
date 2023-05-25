@@ -23,9 +23,9 @@ void createNewRecruit();
 void selectRecruitInfo();
 
 
-/*
+
 void searchRecruitment();
-*/
+
 void apply();
 
 
@@ -252,7 +252,9 @@ void apply() {
     char bizNum[MAX_STRING];
     fscanf(in_fp, "%s", bizNum);
 
-    ApplyUI::apply(bizNum);
+    ApplyInfo a = ApplyUI::apply(bizNum);
+
+    fprintf(out_fp, "%s %s %s \n", a.getCompanyName().c_str(), a.getBizNum().c_str(), a.getWork().c_str());
 
 }
 

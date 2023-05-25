@@ -25,7 +25,7 @@ public:
 	}
 	void setCompanyName(string companyName) { this->companyName = companyName; }
 	void setbizNum(string bizNum) { this->bizNum = bizNum; }
-	void setWork(string task) { this->work = work; }
+	void setWork(string work) { this->work = work; }
 	void setNumOfPeople(int companyName) { this->numOfPeople = numOfPeople; }
 	void setDeadline(string deadline) { this->deadline = deadline; }
 
@@ -40,12 +40,12 @@ public:
 //지원
 class ApplyUI {
 public:
-	static void apply(string bizNum) ;
+	static ApplyInfo apply(string bizNum) ;
 };
 
 class Apply {
 public:
-	static void addNewApply(string bizNum);
+	static ApplyInfo addNewApply(string bizNum);
 };
 
 
@@ -61,8 +61,6 @@ class ApplyInquiry {
 public:
 	static vector<ApplyInfo> showApplyInfo() ;
 };
-
-
 
 
 //4.4 지원취소UI

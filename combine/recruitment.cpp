@@ -10,6 +10,17 @@ void RecruitmentList::addRecruitment(Recruitment* recruitment) {
     recruitments.push_back(recruitment);
 }
 
+void Recruitment::setNumberOfApplicants(bool b) {
+    if (b)
+    {
+        numberOfApplicants++;
+    }
+    else
+    {
+        numberOfApplicants--;
+    }
+}
+
 void Recruitment::setCompany()
 {
     MemberList* memberList = MemberList::getInstance();
@@ -52,4 +63,12 @@ vector<Recruitment*> RecruitInquiry::showRecruitInfo() {
 
 vector<Recruitment*> RecruitmentList::getRecruitListinfo() {
     return recruitments;
+}
+
+vector<Recruitment*> GetRecruitmentUI::showRecruitment() {
+    return RecruitInquiry::showRecruitInfo();
+}
+
+vector<Recruitment*> GetRecruitment::showRecruitmentDetail() {
+    return RecruitmentList::getRecruitListinfo();
 }
