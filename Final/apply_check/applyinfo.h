@@ -24,7 +24,7 @@ public:
 
 class ApplyInfoList {
 private:
-	static vector<ApplyInfo*> applyinfolist;
+	static vector<ApplyInfo*> applyInfoList;
 public:
 	static void addRecruitment(ApplyInfo*);
 	static vector<ApplyInfo*> getApplyListInfo();

@@ -7,10 +7,10 @@
 
 using namespace std;
 
-std::vector<ApplyInfo*> ApplyInfoList::applyinfolist = std::vector<ApplyInfo*>(0);
+std::vector<ApplyInfo*> ApplyInfoList::applyInfoList = std::vector<ApplyInfo*>(0);
 
 void ApplyInfoList::addRecruitment(ApplyInfo* apply) {
-	applyinfolist.push_back(apply);
+	applyInfoList.push_back(apply);
 }
 
 void ApplyUI::apply(Member* normalmember, Recruitment* recruitment) {
@@ -37,7 +37,7 @@ vector<ApplyInfo*> ApplyInquiry::showApplyInfo() {
 }
 
 vector<ApplyInfo*> ApplyInfoList::getApplyListInfo(){
-	return applyinfolist;
+	return applyInfoList;
 }
 
 Recruitment* CancelApplyInfoUI::cancelApplyInfo(string bizNum) {
@@ -52,11 +52,11 @@ Recruitment* CancelApplyInfo::cancelApply(string bizNum) {
 Recruitment* ApplyInfoList::removeApplyInfo(string bizNum) {
 	Member* member = MemberList::getInstance()->getCurrentUser();
 
-	for (auto apply : applyinfolist) {
+	for (auto apply : applyInfoList) {
 		if (apply->getNormalMember()->getId() == member->getId() && apply->getNormalMember()->getPw() == member->getPw() && apply->getRecruitment()->getBizNum() == bizNum) {
-			auto iter = find(applyinfolist.begin(), applyinfolist.end(), apply);
-			if (iter != applyinfolist.end()) {
-				applyinfolist.erase(iter);
+			auto iter = find(applyInfoList.begin(), applyInfoList.end(), apply);
+			if (iter != applyInfoList.end()) {
+				applyInfoList.erase(iter);
 				cout << "지원 취소 성공\n";
 			}
 			apply->getRecruitment()->removeApplicants();
@@ -77,7 +77,7 @@ map<string, int> ApplyInfoList::getStatistic() {
 	Member* member = MemberList::getInstance()->getCurrentUser();
 	map<string, int> mp;
 
-	for (auto apply : applyinfolist) {
+	for (auto apply : applyInfoList) {
 		if (apply->getNormalMember()->getId() == member->getId() && apply->getNormalMember()->getPw() == member->getPw()) {
 			if (mp.find(apply->getRecruitment()->getWork()) != mp.end()) {
 				++mp[apply->getRecruitment()->getWork()];
