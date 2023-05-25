@@ -52,8 +52,18 @@ ApplyInfo CancelApplyInfoUI::cancelApplyInfo(string bizNum) {
 
 ApplyInfo CancelApplyInfo::cancelApply(string bizNum) {
 	Member* currentUser = MemberList::getInstance()->getCurrentUser();
+
+	vector<Recruitment*> recruitments = RecruitmentList::getRecruitListinfo();
+
+	for (auto recruit : recruitments) {
+		if (recruit->getBizNum() == bizNum)
+			recruit->setNumberOfApplicants(false);
+	}
+	
 	return currentUser->Member::removeApplyInfo(bizNum);
 }
+
+
 
 //5.1 지원 정보 통계
 map<string, int> GetApplyNumUI::showApplyNumInfo() {
