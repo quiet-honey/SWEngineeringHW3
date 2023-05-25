@@ -23,14 +23,14 @@ void Recruitment::setBizNum() {
     if (bizMember != nullptr) {
         const string& bizNum = bizMember->getBizNum();
         // bizNum »ç¿ë
-        cout << bizNum << "\n";
+        this->bizNum = bizNum;
     }
 }
 
 void AddRecruitInfo::addNewRecruit(char* work, int num, char* deadline) {
     Recruitment* r = new Recruitment();
     r->setCompany();
-    //r->setBizNum();
+    r->setBizNum();
     r->setWork(work);
     r->setNumberOfRecruit(num);
     r->setDeadline(deadline);

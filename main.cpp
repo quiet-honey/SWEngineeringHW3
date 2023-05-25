@@ -22,7 +22,7 @@ void logout();
 
 void createNewRecruit();
 void selectRecruitInfo();
-//void searchRecruitment();
+void searchRecruitment();
 /*
 void apply();
 void selectApplyInfo();
@@ -105,13 +105,14 @@ void doTask() {
                 break;
             }
             break;
-        /*
+        
         case 4:
             switch (menu_level_2)
             {
             case 1:
                 searchRecruitment();
                 break;
+            /*    
             case 2:
                 apply();
                 break;
@@ -121,12 +122,12 @@ void doTask() {
                 break;
             case 4:
                 cancelApplyInfo();
-                break;
+                break;*/
             default:
                 break;
             }
             break;
-            
+            /*
         case 5:
             switch (menu_level_2)
             {
@@ -134,10 +135,10 @@ void doTask() {
                 showRecruitNumInfo();
                 break;
             default:
-                break;
+                break; 
             }
-            break;
-        */
+            break;*/
+       
         case 6:
             switch (menu_level_2)
             {
@@ -220,27 +221,30 @@ void selectRecruitInfo() {
 
     for (auto recruit : recruitments) {
         cout << recruit->getCompany() << endl;
-        fprintf(out_fp, "%s %s %d %s\n", recruit->getCompany().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
+        fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
     }
 }
 
-/*
+
 void searchRecruitment() {
     fprintf(out_fp, "4.1. 채용 정보 검색\n");
 
     char company[MAX_STRING];
+ 
+    fscanf(in_fp, "%s ", company);
 
+  
     vector<Recruitment*> recruitments = RecruitInquiryUI::selectRecruitInfo();
 
     for (auto recruit : recruitments) {
-        if (recruit->getCompany().compare(company))
+        if (recruit->getCompany() == company)
         {
-            fprintf(out_fp, "%s %s %d %s\n", recruit->getCompany().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
+            fprintf(out_fp, "%s %s %s %d %s\n", recruit->getCompany().c_str(), recruit->getBizNum().c_str(), recruit->getWork().c_str(), recruit->getNumberOfRecruit(), recruit->getDeadline().c_str());
         }
         
     }
 }
-*/
+
 
 void program_exit() {
     fprintf(out_fp, "6.1. 종료\n");
